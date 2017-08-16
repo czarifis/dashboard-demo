@@ -1,0 +1,176 @@
+.angular-google-map-container {
+  width: 800px;
+  height: 500px;
+  background-color: grey;
+}
+
+#map {
+  width: 800px;
+  height: 500px;
+  background-color: grey;
+}
+
+div.left {
+  float: left;
+  width: 400px;
+}
+
+div.right {
+  float: left;
+  /*width: 60%;*/
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+
+div.unit {
+  /*border-style: solid;*/
+  width: auto;
+}
+
+div.text {
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  height:130px;
+}
+
+
+/* Style the tab */
+div.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 170px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+  background-color: #ccc;
+}
+
+.input_width{
+  width:220px
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 0px solid #ccc;
+  border-top: none;
+}
+
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+.tabsdemoDynamicHeight md-content md-tabs {
+  background: #f6f6f6;
+  border: 1px solid #e1e1e1; }
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+  background: white; }
+.tabsdemoDynamicHeight md-content h1:first-child {
+  margin-top: 0; }
+
+div.big-text {
+  font-size: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+.button5 {
+
+
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 2px;
+  cursor: pointer;
+  background-color: #555555;} /* Black */
+body {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+div.infowindow {
+  width: 150px;
+  height: 100px;
+}
+
+tr.nested {
+  font-size: 13px;
+  /*border: 1pt;*/
+  /*text-align: right;*/
+}
+
+tr {
+  vertical-align: top;
+}
+
+th {
+  padding-right: 30px;
+}
+
+table.social {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th.social {
+  text-align: left;
+  padding: 8px;
+}
+
+td.social{
+   text-align: left;
+   padding: 8px;
+}
+
+/*tr.social:nth-child(even){background-color: #f2f2f2}*/
+
+.map {
+  height: auto;
+}
+ 
+@media screen and (min-width: 1024px){
+    .map {
+        height: 500px;
+    }
+}
+
+.pad{
+  padding-bottom: 40px;
+}
+
+.padtop{
+  padding-top: 40px;
+}
+

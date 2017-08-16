@@ -1,0 +1,38 @@
+<html>
+  <header><title>Vanilla HTML + Javascript</title></header>
+
+  <head>
+    <link rel="stylesheet" href="/style.css">
+    <h1><b>Vanilla HTML + Javascript</b></h1>
+  </head>
+
+  <body>
+    <div class="left">
+      <div class="unit text">
+          Right now
+          <div id="user_counter" class="big-text"></div>
+          active users on site
+      </div>
+
+      <div id="visitor-meter" class="unit"></div>
+      <div id="view-count-graph" class="unit"></div>
+
+      <div class="unit">
+        <table id="countries-table">
+          <th>Country</th>
+          <th>Visitors</th>
+        </table>
+      </div>
+    </div>
+
+    <div class="right">
+      <div id="map"></div>
+    </div>
+  </body>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/boost.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFUwV2qDXED1zAGQqtv6qBi06DK0_Uj_4"></script>
+<script src="/vanilla/resources.js"></script>
+
+</html>

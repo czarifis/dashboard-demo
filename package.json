@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickguo/app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickguo/app/issues"
+  },
+  "homepage": "https://github.com/nickguo/app#readme",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-google-maps": "^2.4.1",
+    "express": "^4.15.3",
+    "highcharts-ng": "^1.1.0"
+  }
+}

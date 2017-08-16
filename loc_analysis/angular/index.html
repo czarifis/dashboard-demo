@@ -1,0 +1,81 @@
+<html>
+  <header><title>Angular</title></header>
+
+  <head>
+    <link rel="stylesheet" href="/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.15/angular-filter.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFUwV2qDXED1zAGQqtv6qBi06DK0_Uj_4"></script>
+
+		<script src="http://code.highcharts.com/highcharts.src.js"></script>
+    <script src="/dist/highcharts-ng.js"></script>
+    <link href="/dist/highcharts-ng.css" rel="stylesheet">
+
+    <script src="/lodash.js"></script>
+    <script src="/angular-simple-logger.js"></script>
+    <script src="/google-dist/angular-google-maps.js"></script>
+
+		<script src="/angular/resources.js"></script>
+    <h1><b>Angular</b></h1>
+  </head>
+
+  <body ng-app="myApp" ng-controller="refresh-user-data">
+    <div class="left">
+      <div class="unit text">
+          Right now
+          <div class="big-text">{{ users.length }}</div>
+          active users on site
+      </div>
+
+      <div class="unit">
+      <highchart id="visitor-meter-chart" config="visitorMeterConfig"></highchart>
+      </div>
+
+      <div class="unit">
+      <highchart id="pageview-graph" config="pageviewGraphConfig"></highchart>
+      </div>
+
+      <div class="unit">
+        <table id="users-table">
+          <th>Country</th>
+          <th>Visitors</th>
+          <tr ng-repeat-start="grouped_country in users | groupBy:'country' | toSortableArray | orderBy:'-val.length'">
+            <td>{{ grouped_country.id}}</td>
+            <td>{{ grouped_country.val.length }}</td>
+            <td><button ng-click="toggleHidden(grouped_country.id)">
+                    {{ isHidden[grouped_country.id] ? 'Show Users' : 'Hide Users' }}
+            </td>
+
+            <td>
+              <tr class="nested" ng-hide="isHidden[grouped_country.id]">
+                <td class="indented">User Id</td>
+                <td>Country</td>
+                <td>lat</td>
+                <td>lng</td>
+              </tr>
+
+              <tr class="nested" ng-repeat-end ng-repeat="user in grouped_country.val" ng-hide="isHidden[grouped_country.id]">
+                <td>{{ user.id }}</td>
+                <td>{{ user.country }}</td>
+                <td>{{ user.loc.latitude | number:2 }}</td>
+                <td>{{ user.loc.longitude | number:2 }}</td>
+              </tr>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="right">
+      <div>
+        <ui-gmap-google-map class="unit" center='map.center' zoom='map.zoom'>
+          <ui-gmap-marker ng-repeat="user in users" coords="user.loc" idkey="user.id" infowindow="hey">
+						<ui-gmap-window templateUrl="'/angular/template.html'"
+                            templateParameter="{id: '_nested_highchart_'+user.id, config: user.graph_config}">
+						</ui-gmap-window>
+          </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+  </body>
+</html>
