@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b420f17c-426e-45f4-b4b5-bd1a44ea7dd9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/index.html" afterPath="$PROJECT_DIR$/angular/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/resources.js" afterPath="$PROJECT_DIR$/angular/resources.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angular/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.528302" vertical-offset="103" max-vertical-offset="3072">
-              <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
+            <state vertical-scroll-proportion="0.48430493" vertical-offset="0" max-vertical-offset="3072">
+              <caret line="27" column="104" selection-start-line="27" selection-start-column="104" selection-end-line="27" selection-end-column="104" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -60,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resources.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="resources.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/resources.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49892473" vertical-offset="4704" max-vertical-offset="7760">
+            <state vertical-scroll-proportion="-35.42857" vertical-offset="4176" max-vertical-offset="7760">
               <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
               <folding />
             </state>
@@ -79,8 +78,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/style/style.css" />
-        <option value="$PROJECT_DIR$/angular/index.html" />
         <option value="$PROJECT_DIR$/angular/resources.js" />
+        <option value="$PROJECT_DIR$/angular/index.html" />
       </list>
     </option>
   </component>
@@ -435,21 +434,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/index.html">
+    <entry file="file://$PROJECT_DIR$/angular/resources.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.528302" vertical-offset="103" max-vertical-offset="3072">
-          <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-35.42857" vertical-offset="4176" max-vertical-offset="7760">
+          <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/resources.js">
+    <entry file="file://$PROJECT_DIR$/angular/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49892473" vertical-offset="4704" max-vertical-offset="7760">
-          <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.48430493" vertical-offset="0" max-vertical-offset="3072">
+          <caret line="27" column="104" selection-start-line="27" selection-start-column="104" selection-end-line="27" selection-end-column="104" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
