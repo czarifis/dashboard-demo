@@ -200,7 +200,7 @@ app.controller('refresh-user-data', function($scope, $http, $interval) {
     // Highcharts directives have to be updated as well since their variables aren't bound.
     updateVisitorMeterConfig($scope, user);
     updatePageviewGraph($scope);
-  }, 1000);
+  }, 2000);
 
 
   // change a user's location every 100 ms.
@@ -208,15 +208,15 @@ app.controller('refresh-user-data', function($scope, $http, $interval) {
     var user = $scope.users[Math.floor($scope.users.length * Math.random())];
     user.loc.latitude = Number(user.loc.latitude) + 0.1;//(Math.random() - 0.5) * 100;
     user.loc.longitude = Number(user.loc.latitude) + 0.1;//(Math.random() - 0.5) * 100;
-  }, 1000);
+  }, 5000);
 
     var ijk = 0;
   // append a new data point to a user's graph
-  $interval(function() {
-      ijk++;
-    // For performance testing purposes, just push a constant to the first user.
-    $scope.users[ijk%N].graph_config.series[0].data.push(10);
-  }, 1000);
+  //$interval(function() {
+  //    ijk++;
+  //  // For performance testing purposes, just push a constant to the first user.
+  //  $scope.users[ijk%N].graph_config.series[0].data.push(10);
+  //}, 1000);
 
 });
 
