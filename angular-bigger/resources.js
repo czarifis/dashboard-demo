@@ -170,11 +170,11 @@ app.controller('refresh-user-data', function($scope, $http, $interval) {
 
   $scope.users = [];
 
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 300; i++) {
         generateNewUser($scope.users, 2);
     }
 
-    for (var i = 0; i < 40; i++) {
+    for (var i = 0; i < 400; i++) {
         generateNewUser($scope.users, 8);
     }
 
@@ -263,7 +263,7 @@ function configurePageviewGraph($scope) {
                 }
 		},
     series: [{
-      name: 'visitors',
+        name: 'visitors',
       data:
       (function () {
             // generate an array of random data

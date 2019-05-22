@@ -1,0 +1,186 @@
+<html>
+  <header><title>Angular</title></header>
+
+  <head>
+    <link rel="stylesheet" href="../style/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.15/angular-filter.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4H8zYIBrE_0cTtplzSIVug28Tlupwig"></script>
+
+    <!--<script src="/angular/node_modules/angular/angular.js"></script>-->
+    <!--<script src="/angular/node_modules/angular-aria/angular-aria.js"></script>-->
+    <!--<script src="/angular/node_modules/angular-animate/angular-animate.js"></script>-->
+    <!--<script src="/angular/node_modules/angular-material/angular-material.js"></script>-->
+
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.14/highcharts.src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highcharts-ng/1.1.0/highcharts-ng.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.10/chance.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-simple-logger/0.1.7/angular-simple-logger.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.4.1/angular-google-maps.js"></script>
+
+		<script src="resources.js"></script>
+    <!--<h1><b>Angular</b></h1>-->
+  </head>
+
+  <body ng-app="myApp" ng-controller="refresh-user-data">
+
+
+  <div class="tab">
+    <button class="tablinks active" onclick="openCity(event, 'London')">Location</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Sources - Social Media</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Demographics</button>
+  </div>
+
+  <div id="London" class="tabcontent" style="display: block">
+
+
+
+    <div class="left">
+
+      <div>
+        <div class="unit text">
+            Right now
+            <div class="big-text">{{ users.length }}</div>
+            active users on site
+        </div>
+
+        <div class="unit">
+        <highchart id="visitor-meter-chart" config="visitorMeterConfig"></highchart>
+        </div>
+
+      </div>
+
+      <!--<hr>-->
+      <div class="unit padtop">
+        <form novalidate class="simple-form">
+          <label>Country: <input type="text" class="input_width" ng-model="user.name" /></label>
+          <input type="submit" ng-click="update(user)" value="Search" />
+
+        </form>
+        <table id="users-table">
+          <th>Country</th>
+          <th>Visitors</th>
+          <th>Show/Hide Users</th>
+          <th>Active</th>
+          <tr ng-repeat-start="grouped_country in users | groupBy:'country' | toSortableArray | orderBy:'-val.length'">
+
+            <td>{{ grouped_country.id}}</td>
+            <td>{{ grouped_country.val.length }}</td>
+            <td><button class="button button5" ng-click="toggleHidden(grouped_country.id)">
+                    {{ isHidden[grouped_country.id] ? 'Show Users' : 'Hide Users' }}
+            </td>
+            <td><input type="checkbox" ng-model="grouped_country.active"></td>
+
+            <td>
+
+              <tr class="nested" ng-hide="isHidden[grouped_country.id]">
+                <th >Name</th>
+                <!--<td>Country</td>-->
+                <th>lat</th>
+                <th>lng</th>
+              </tr>
+
+              <tr class="nested" ng-repeat-end ng-repeat="user in grouped_country.val" ng-hide="isHidden[grouped_country.id]">
+                <td>{{ user.username }}</td>
+                <!--<td>{{ user.country }}</td>-->
+                <td>{{ user.loc.latitude | number:2 }}</td>
+                <td>{{ user.loc.longitude | number:2 }}</td>
+              </tr>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="pad">
+        <div class="unit">
+          <highchart id="pageview-graph" config="pageviewGraphConfig"></highchart>
+        </div>
+      </div>
+
+      <div>
+        <ui-gmap-google-map class="unit" center='map.center' zoom='map.zoom'>
+          <ui-gmap-marker ng-repeat="user in users" coords="user.loc" idkey="user.id" infowindow="hey">
+						<ui-gmap-window templateUrl="'template.html'"
+                            templateParameter="{id: '_nested_highchart_'+user.id, config: user.graph_config}">
+						</ui-gmap-window>
+          </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+    </div>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <div class="left">
+
+        <div>
+          <div class="unit text">
+            Right now
+            <div class="big-text">{{ users.length }}</div>
+            active users on site
+          </div>
+
+          <div class="unit">
+            <highchart id="visitor-meter-chart" config="visitorMeterConfig2"></highchart>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right">
+
+        <div >
+          <div class="unit">
+            <highchart id="pageview-graph" config="pageviewGraphConfig"></highchart>
+          </div>
+        </div>
+        <div>
+
+        </div>
+      </div>
+
+      <table class="social">
+        <tr class="social">
+          <th class="social">Medium</th>
+          <th class="social">Source</th>
+          <th class="social">Users (percent) </th>
+        </tr>
+        <tr class="social">
+          <td class="social">Social</td>
+          <td class="social">Facebook</td>
+          <td class="social">40%</td>
+        </tr>
+        <tr class="social">
+          <td class="social">Social</td>
+          <td class="social">Twitter</td>
+          <td class="social">35%</td>
+        </tr>
+        <tr>
+          <td class="social">Organic</td>
+          <td class="social">Google</td>
+          <td class="social">15%</td>
+        </tr>
+        <tr>
+          <td class="social">Organic</td>
+          <td class="social">Direct</td>
+          <td class="social">10%</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </body>
+</html>
